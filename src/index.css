@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+
+/* #root {
+
+} */
+
+body {
+
+  margin: 0;
+  padding: 0;
+  background-color: #f6f4f4ac;
+  font-family: 'Inter', sans-serif;
+  /* Bloqueia selecionar */
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Inter', sans-serif;
+  color: #414040;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  color: #414040;
+}
+
+
+.primary-button {
+  font-family: 'Inter', sans-serif;
+  padding: 0.35em 1.2em;
+  font-size: 19px;
+  margin-right: 8px;
+  margin-left: 8px;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #555353;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.primary-button:hover,
+nav button:hover {
+  color: #d93535;
+  background-color: transparent;
+}
+
+.primary-button:disabled {
+  background-color: transparent;
+  color: transparent;
+  cursor: not-allowed;
+}
+
+.active {
+  color: #d93535;
+  background-color: transparent;
+}
+
+.primary-button:hover {
+  background-color: transparent;
+
+}
+
+.primary-button:active {
+  background-color: transparent;
+  transform: translateY(-7px);
+}
+
+.secondary-button {
+  font-family: 'Montserrat', sans-serif;
+  display: inline-block;
+
+  padding: 0.5em 1.2em;
+  font-size: 18px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-weight: 400;
+  color: #ffffff;
+  background-color: #E62428;
+  border: none;
+  border-radius: 45px;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  /* nao quebrar a linha */
+  white-space: nowrap;
+}
+
+.secondary-button:hover {
+  background-color: #B0151B;
+
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: "Montserrat", sans-serif;
+  color: #aaa;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* form {
+  display: flex;
+  flex-direction: column;
+  margin: 2em 0;
+  padding: 2em;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  width: 100%;
+  max-width: 600px;
+} */
+label {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0;
+}
+
+label span {
+  margin-bottom: .3em;
+  font-weight: bold;
+  text-align: left;
+}
+
+input,
+textarea {
+  box-sizing: border-box;
+  border: none;
+  border-radius: 20px;
+  border: 2px solid #ccc;
+  padding: .8em 0;
+  background-color: transparent;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+
+.container .error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.tooltip {
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+}
+
+/* Estilo da tooltip */
+.tooltip::after {
+  content: attr(title);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #FF0000;
+  /* Vermelho */
+  color: #FFFFFF;
+  /* Branco */
+  padding: 5px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Estilo da tooltip quando o mouse faz hover */
+.tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
