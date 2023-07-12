@@ -14,7 +14,6 @@ const Page = styled.div`
   justify-content: center;
   align-items: center;
 `
-
 const Container = styled.div`
     width: 70%;
     display: flex;
@@ -42,8 +41,6 @@ const Container = styled.div`
       color: #797474;
       margin-bottom: 20px;
     }
-
-
 `
 const Image = styled.div`
     width: 100%;
@@ -73,7 +70,6 @@ const Paragraph = styled.div`
       padding: 0;
     }
 `
-
 const Tags = styled.span`
     display: inline-block;
     padding: 0.5em;
@@ -83,8 +79,8 @@ const Tags = styled.span`
     font-weight: bold;
     text-transform: uppercase;
     &:hover {
-      background-color: #fff;
-      color: #090909;
+      background-color: transparent;
+      color: #ee2626;
       cursor: pointer;
     }
     p{
@@ -110,10 +106,9 @@ const Links = styled.div`
       } 
     }
 `
-
 export default () => {
   const { id } = useParams();
-  const { document: post, loading } = useFetchDocument("posts", id)
+  const { document: post} = useFetchDocument("posts", id)
 
   let formattedDate = '';
   let paragraphs = [];
@@ -133,12 +128,10 @@ export default () => {
     paragraphs[paragraphs.length - 1] = paragraphs[paragraphs.length - 1].replace(".", "")
   }
 
-
   return (
     <Page>
       <Search />
       <Container>
-        {loading && <p>Carregando...</p>}
         {post && (
           <>
             <h2>{post.title}</h2>

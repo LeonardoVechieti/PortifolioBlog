@@ -18,9 +18,7 @@ const Container = styled.div`
             width: 50%;
         }
     }
-    
 `
-
 export default () => {
 
     const [displayName, setDisplayName] = useState('')
@@ -29,7 +27,7 @@ export default () => {
     const [confirmPassword, setConfirmPassword] = useState('')
     const [error, setError] = useState('')
 
-    const {createUser, error: authError, loading } = useAuthentication();
+    const {createUser, error: authError} = useAuthentication();
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -44,7 +42,6 @@ export default () => {
             setError('Senhas não conferem')
             return
         }
-
         const res = await createUser(user)
         console.log(user)
     }
@@ -55,8 +52,6 @@ export default () => {
             setError(authError)
         }
     }, [authError])
-
-
     return (
         <Container>
             <h1>Register</h1>

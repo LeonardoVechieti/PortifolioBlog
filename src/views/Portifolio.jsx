@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import CardPortifolio from '../components/CardPortifolio'
 
 //hoks
-import { useNavigate, Link } from 'react-router-dom'
-import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useFetchDocuments } from '../hooks/useFetchDocuments'
 
 const Container = styled.div`
@@ -26,27 +25,12 @@ const Container = styled.div`
       flex-direction: column;
       }
     }
-
-  
 `
-
-
 export default () => {
-  const navigate = useNavigate();
-  const [query, setQuery] = useState('');
-  const { documents: posts, loading } = useFetchDocuments("posts")
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    // navigate(`/search/${query}`)
-    if (query) {
-      navigate(`/search?q=${query}`)
-    }
-  }
+  const { documents: posts } = useFetchDocuments("posts")
   return (
     <Container>
       <section>
-        {loading && <p>Carregando...</p>}
         {posts && posts
           .filter(post => post.tagsArray && post.tagsArray.includes('portifolio'))
           .map((post) => (
@@ -59,7 +43,6 @@ export default () => {
           </div>
         )}
       </section>
-
     </Container>
   )
 }

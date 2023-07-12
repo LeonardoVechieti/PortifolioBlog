@@ -13,22 +13,20 @@ const Container = styled.div`
 export default () => {
     const query = useQuery();
     const search = query.get("q");
-    const { documents: posts, loading } = useFetchDocuments("posts", search);
+    const { documents: posts } = useFetchDocuments("posts", search);
 
-  return (
-    <Container>
-        <Search />
-        {loading && <p>Carregando...</p>}
-        {posts && posts.length === 0 && (
-            <div>
-                <p>Não foi encontrado Posts!</p>
-            </div>
-        )}
-        {posts && posts.map((post) => (
-           <PostsDetail key={post.id} post={post} />
-        ))}
-
-    </Container>
-  )
+    return (
+        <Container>
+            <Search />
+            {posts && posts.length === 0 && (
+                <div>
+                    <p>Não foi encontrado Posts!</p>
+                </div>
+            )}
+            {posts && posts.map((post) => (
+                <PostsDetail key={post.id} post={post} />
+            ))}
+        </Container>
+    )
 }
 

@@ -12,7 +12,6 @@ const Page = styled.div`
   justify-content: center;
   align-items: center;
 `
-
 const Container = styled.div`
     width: 70%;
     display: flex;
@@ -58,8 +57,6 @@ const Container = styled.div`
       font-size: 15px;
       color: #5e5b5b;
     }
-
-
 `
 const Tags = styled.span`
     display: inline-block;
@@ -96,9 +93,7 @@ const Links = styled.div`
         cursor: pointer;
       } 
     }
- 
 `
-
 export default ({ post }) => {
   const date = new Date(post.createdAt.seconds * 1000)
   const formattedDate = date.toLocaleDateString('pt-BR', {
@@ -138,7 +133,6 @@ export default ({ post }) => {
           <Link to={`/blog/${post.id}`} className="secondary-button">Ver Post</Link>
         </Links>
       </Container>
-
     </Page>
   )
 }
