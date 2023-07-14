@@ -6,11 +6,15 @@
 } */
 
 body {
-
   margin: 0;
   padding: 0;
   background-color: #f6f4f4ac;
   font-family: 'Inter', sans-serif;
+  /* Mantem o tamanho da tela horizontal */
+  overflow-x: hidden;
+  /* Em dispositivos moveis não deixa que tenha barra horizontal*/
+  /* overflow-x: scroll; */
+  /* overflow-y: hidden; */
   /* Bloqueia selecionar */
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -34,13 +38,15 @@ h5,
 h6 {
   font-family: 'Inter', sans-serif;
   color: #414040;
+  @media screen and (max-width: 1023px) {
+    font-size: 2rem;
+  }
 }
 
 p {
   font-family: 'Montserrat', sans-serif;
   color: #414040;
 }
-
 
 .primary-button {
   font-family: 'Inter', sans-serif;
@@ -103,11 +109,13 @@ nav button:hover {
   border: none;
   /* nao quebrar a linha */
   white-space: nowrap;
+  &.active {
+    background-color: #B0151B;
+  }
 }
 
 .secondary-button:hover {
   background-color: #B0151B;
-
 }
 
 input::placeholder,
@@ -121,7 +129,7 @@ textarea:focus {
   outline: none;
 }
 
-/* form {
+.form {
   display: flex;
   flex-direction: column;
   margin: 2em 0;
@@ -131,7 +139,7 @@ textarea:focus {
   background-color: transparent;
   width: 100%;
   max-width: 600px;
-} */
+}
 label {
   display: flex;
   flex-direction: column;

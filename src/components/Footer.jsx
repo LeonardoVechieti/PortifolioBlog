@@ -4,9 +4,9 @@ import Social from './Social'
 import { NavLink } from 'react-router-dom'
 
 const Footer = styled.footer`
-    /* background-color: #e6e4e4; */
+    width: 100;
     background-color: transparent;
-    height: 170px;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;

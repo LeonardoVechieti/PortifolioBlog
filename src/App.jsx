@@ -32,8 +32,9 @@ function App() {
       setUser(user);
     });
   }, [auth]);
-
+ 
   return (
+
     <div className="App">
       <AuthProvider value={{ user }}>
         <BrowserRouter>
@@ -84,3 +85,5 @@ export default App
 //npm install react-markdown
 //comando para instalar o react-syntax-highlighter
 //npm install react-syntax-highlighter
+// instala o react-icons
+// npm install react-icons --save

@@ -11,7 +11,9 @@ const LogoWrapper = styled.div`
     font-weight: 300;
     font-size: 2em;
     letter-spacing: 0.1em;
-    
+    @media screen and (max-width: 1023px) {
+        font-size: 1.4em;
+    }
     div {
         display: flex;
         flex-direction: row;
