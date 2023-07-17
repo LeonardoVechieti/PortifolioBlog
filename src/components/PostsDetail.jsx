@@ -32,8 +32,8 @@ const Container = styled.div`
       margin-top: 10px;
       margin-bottom: 25px;
       @media screen and (max-width: 768px) {
-        max-width: 500px;
-        height: 300px;
+        max-width: 350px;
+        height: 200px;
       }
     }
     

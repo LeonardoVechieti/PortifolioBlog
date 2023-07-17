@@ -47,7 +47,6 @@ function App() {
             <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/search" element={<Search />} />
-            {/* <Route path="/blog/posts/:id" element={<Posts/>} /> */}
             <Route path="/blog/:id" element={<Posts />} />
             {/* Rotas privadas */}
             <Route path="/posts/create" element={user ? <CreatePost /> : <Navigate to="/login" />} />

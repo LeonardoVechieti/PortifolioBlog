@@ -92,6 +92,33 @@ const Links = styled.div`
       } 
     }
 `
+const MenuRepo = styled.div`
+    margin-left: 3px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+      align-items: start;
+      margin: 0;
+    }
+`
+const Repository = styled.div`
+    border: 1px solid #c4c2c2;
+    border-radius: 0.5em;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    &:hover {
+      cursor: pointer;
+      background-color: #c4c2c2;
+    }
+`
+
+
 export default () => {
   const { id } = useParams();
   const { document: post } = useFetchDocument("posts", id)
@@ -134,20 +161,26 @@ export default () => {
               <h4 >Criado por {post.createdBy} em {formattedDate} </h4>
               <Tags tags={post.tagsArray} />
               <Links>
-                <div>
+                <MenuRepo>
                   {post.urlRepository && (
-                    <a href={post.urlRepository} target="_blank" rel="noopener noreferrer" title='Repositório' className='tooltip'
-                    >
-                      <Github />
+                    <a href={post.urlRepository} target="_blank" rel="noopener noreferrer">
+                      <Repository>
+                        <Github />
+                        <button className='primary-button'>Repositório</button>
+                      </Repository>
+                      
                     </a>
                   )}
                   {post.deploy && (
-                    <a href={post.deploy} target="_blank" rel="noopener noreferrer" title='Deploy' className='tooltip'
-                    >
-                      <Netlify />
+                    <a href={post.deploy} target="_blank" rel="noopener noreferrer">
+                      <Repository>
+                         <Netlify />
+                        <button className='primary-button'>Deploy</button>
+                      </Repository>
+                     
                     </a>
                   )}
-                </div>
+                </MenuRepo>
                 <div>
                   <Link to={`/blog`}>
                     <a className='secondary-button'>Voltar</a>

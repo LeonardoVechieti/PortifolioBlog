@@ -94,7 +94,7 @@ export default ({ type, closeMenu , button}) => {
                 )}
                 {user && (
                     <li onClick={closeMenu}>
-                        <button onClick={logout} className={button}>Logout</button>
+                        <NavLink to="/" className={button} onClick={logout}>Logout</NavLink>
                     </li>
                 )}
             </ul>

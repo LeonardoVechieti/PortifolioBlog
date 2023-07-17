@@ -7,6 +7,9 @@ import Kotlin from '../assets/svg/Kotlin'
 import Android from '../assets/svg/Android'
 import Ios from '../assets/svg/Ios'
 import Sass from '../assets/svg/Sass'
+import Javax from '../assets/svg/.Javax'
+import Firebase from '../assets/svg/Firebase'
+import Docker from '../assets/svg/Docker'
 
 
 const TechnologyWrapper = styled.div`
@@ -26,6 +29,8 @@ export default ({ tags }) => {
   return (
     <TechnologyWrapper>
       {tags.includes('android') ? <a title="Android" className='tooltip'><Android /> </a> : null}
+      {tags.includes('firebase') ? <a title="Firebase" className='tooltip'><Firebase/> </a> : null}
+      {tags.includes('docker') ? <a title="Docker" className='tooltip'><Docker/> </a> : null}
       {tags.includes('ios') ? <a title="Ios" className='tooltip'><Ios /> </a> : null}
       {tags.includes('java') ? <a title="Java" className='tooltip'><Javax /> </a> : null}
       {tags.includes('vue') ? <a title="Vuejs" className='tooltip'><Vuejs /> </a> : null}
