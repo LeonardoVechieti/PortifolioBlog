@@ -11,8 +11,9 @@ const LogoWrapper = styled.div`
     font-weight: 300;
     font-size: 2em;
     letter-spacing: 0.1em;
-    @media screen and (max-width: 1023px) {
-        font-size: 1.4em;
+    &:hover {
+        transform: scale(1.025);
+        transition: 0.5s;
     }
     div {
         display: flex;
@@ -56,9 +57,16 @@ const LogoWrapper = styled.div`
             opacity: 1;
         }
     }
-
+    @media screen and (max-width: 768px) {
+        font-size: 1.4em;
+        .name {
+            border-bottom: 2px solid #ec2626;
+        }
+        .sub-name {
+            border-top: 2px solid #ec2626;
+        }
+    }
 `
-
 
 export const Logo = () => {
     return (

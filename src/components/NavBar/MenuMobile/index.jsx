@@ -2,8 +2,9 @@ import { Container } from './styles';
 import { IoClose } from 'react-icons/io5';
 import { useEffect } from 'react';
 import Menu from '../Menu';
+import Footer from '../../Footer';
 
-export default ({ menuIsVisible, setMenuIsVisible }) => {
+export function MenuMobile({ menuIsVisible, setMenuIsVisible }) {
   useEffect(() => {
     document.body.style.overflowY = menuIsVisible ? 'hidden' : 'auto';
   }, [menuIsVisible]);
@@ -14,7 +15,11 @@ export default ({ menuIsVisible, setMenuIsVisible }) => {
   return (
     <Container isVisible={menuIsVisible}>
       <IoClose size={45} onClick={() => setMenuIsVisible(false)} />
-      <Menu type={'mobile'} closeMenu={closeMenu} button={'secondary-button'} />
+      <div>
+        <Menu type={'mobile'} closeMenu={closeMenu} button={'primary-button'} />
+        <Footer style={'menu'}/>
+      </div>
+
     </Container>
   )
 }

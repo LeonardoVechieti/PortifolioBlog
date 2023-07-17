@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '../components/Button'
 import styled from 'styled-components'
 
-const NotFound = styled.div`
+const NotFound = styled.section`
     padding-top: 3em;
     padding-left: 10em;
     padding-right: 10em;

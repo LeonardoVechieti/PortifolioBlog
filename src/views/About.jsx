@@ -1,13 +1,13 @@
 import React from 'react'
 import ContentAbout from '../components/About'
-import { Tecnology } from '../components/Tecnology'
+import Technology  from '../components/Technology'
 
 
 export default() => {
   return (
     <>
       <ContentAbout/>
-      <Tecnology/>
+      <Technology/>
     </>
   )
 }

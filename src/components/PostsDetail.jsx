@@ -2,8 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Github from '../assets/svg/github'
-import ProjectTecnology from './ProjectTecnology'
+import ProjectTechnology from './ProjectTechnology'
 import Netlify from '../assets/svg/Netlify'
+import Tags  from './Tags'
 
 const Page = styled.div`
   width: 100%;
@@ -13,17 +14,14 @@ const Page = styled.div`
   align-items: center;
 `
 const Container = styled.div`
-    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 2em;
-    padding-bottom: 20px;
+    padding-bottom: 25px;
     border-bottom: 2px solid #c4c2c2;
-    @media screen and (max-width: 768px) {
-      width: 60%;
-    }
+ 
 
     img {
       border-radius: 0.5em;
@@ -35,7 +33,7 @@ const Container = styled.div`
       margin-bottom: 25px;
       @media screen and (max-width: 768px) {
         max-width: 500px;
-      height: 300px;
+        height: 300px;
       }
     }
     
@@ -43,6 +41,7 @@ const Container = styled.div`
       font-size: 35px;
       color: #201f1f;
       margin-bottom: 0.4em;
+      white-space: nowrap;
     }
     p, h4 {
         display: flex;
@@ -58,31 +57,13 @@ const Container = styled.div`
       color: #5e5b5b;
     }
 `
-const Tags = styled.span`
-    display: inline-block;
-    padding: 0.5em;
-    margin-bottom: 20px;
-    color: #343333;
-    font-size: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-    &:hover {
-      background-color: transparent;
-      color: #ee2626;
-      cursor: pointer;
-    }
-    p{
-      margin-right: 0.5em;
-    }
-    span {
-      font-weight: bold;
-    }
-`
+
 const Links = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-top: 25px;
     a {
       margin: 0 0.5em;
     }
@@ -107,18 +88,12 @@ export default ({ post }) => {
       <Container>
         <h2>{post.title}</h2>
         <div>
-          <ProjectTecnology tags={post.tagsArray} />
+          <ProjectTechnology tags={post.tagsArray} />
         </div>
         <img src={post.image} alt={post.title} />
         <p>{post.resumo}</p>
         <h4 >Criado por {post.createdBy} em {formattedDate} </h4>
-        <div>
-          {post.tagsArray && post.tagsArray.map((tag) => (
-            <Link to={`/ search / ${tag}`} key={tag} >
-              <Tags>#{tag}</Tags>
-            </Link>
-          ))}
-        </div>
+        <Tags tags={post.tagsArray}/>
         <Links>
           {post.urlRepository && (
             <a href={post.urlRepository} title='Repositório' className='tooltip' target="_blank" rel="noopener noreferrer">

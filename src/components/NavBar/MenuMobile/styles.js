@@ -1,43 +1,28 @@
 import styled, { css } from "styled-components";
 
-export const Container = styled.section`
+export const Container = styled.div`
   position: absolute;
-  backdrop-filter: blur(3px);
-  width: 100%;
-  height: 100%;
-  top: 0;
+  height: 600px;
+  top: 100px;
   left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 5;
+  z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+  border: 1px solid #d4cccc;;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(50px);
-
+  transform: translateX(-50px);
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
   transition: .5s;
 
   > svg {
-    /* troca para banco */
-    color: #ec2626;
+    color: #696262;
     position: absolute;
     top: 1.7rem;
-    right: 1.7rem;
-    transform: rotate(45deg);
-    transition: .7s;
-  }
-
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 2rem;
-    transform: scale(0.7);
-    transition: .7s;
+    left: 1.7rem;
   }
 
   ${({ isVisible }) => isVisible && css`

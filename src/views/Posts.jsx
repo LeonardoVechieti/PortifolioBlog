@@ -4,18 +4,25 @@ import styled from 'styled-components'
 import Github from '../assets/svg/github'
 import { useParams } from 'react-router-dom'
 import { useFetchDocument } from '../hooks/useFatchDocument'
-import { Search } from '../components/Search'
 import CardResume from '../components/CardResume'
 import Netlify from '../assets/svg/Netlify'
+import Tags from '../components/Tags'
 
-const Page = styled.div`
+const Page = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* Sobrepondo o container do css global */
+  .container {
+    width: 75%;
+    margin-top: 50px;
+    @media screen and (max-width: 767px) {
+    width: 90%;
+  }
+  }
 `
 const Container = styled.div`
-    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -60,34 +67,13 @@ const Paragraph = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 25px;
     p {
-      /* Cria um paragrafo na primeira linha */
       text-indent: 2em;
-      /* Aumenta o espaçamento entre linhas */
       line-height: 1.5em;
       font-size: 25px;
       margin-bottom: 0.5em;
       padding: 0;
-    }
-`
-const Tags = styled.span`
-    display: inline-block;
-    padding: 0.5em;
-    margin-bottom: 20px;
-    color: #343333;
-    font-size: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-    &:hover {
-      background-color: transparent;
-      color: #ee2626;
-      cursor: pointer;
-    }
-    p{
-      margin-right: 0.5em;
-    }
-    span {
-      font-weight: bold;
     }
 `
 const Links = styled.div`
@@ -108,7 +94,7 @@ const Links = styled.div`
 `
 export default () => {
   const { id } = useParams();
-  const { document: post} = useFetchDocument("posts", id)
+  const { document: post } = useFetchDocument("posts", id)
 
   let formattedDate = '';
   let paragraphs = [];
@@ -130,53 +116,48 @@ export default () => {
 
   return (
     <Page>
-      <Search />
-      <Container>
-        {post && (
-          <>
-            <h2>{post.title}</h2>
-            <h4 >Criado por {post.createdBy} em {formattedDate} </h4>
-            <CardResume resume={post.resumo} />
-            <Image>
-              <img src={post.image} alt={post.title} />
-            </Image>
-            <Paragraph>
-              {paragraphs.map((paragraph, index) => (
-                <p key={index}>{paragraph.trim()}</p>
-              ))}
-            </Paragraph>
-            <h4 >Criado por {post.createdBy} em {formattedDate} </h4>
-            <div>
-              {post.tagsArray && post.tagsArray.map((tag) => (
-                <Link to={`/search/${tag}`} key={tag} >
-                  <Tags>#{tag}</Tags>
-                </Link>
-              ))}
-            </div>
-            <Links>
-              <div>
-                {post.urlRepository && (
-                  <a href={post.urlRepository} target="_blank" rel="noopener noreferrer" title='Repositório' className='tooltip'
-                  >
-                    <Github />
-                  </a>
-                )}
-                {post.deploy && (
-                  <a href={post.deploy} target="_blank" rel="noopener noreferrer" title='Deploy' className='tooltip'
-                  >
-                    <Netlify />
-                  </a>
-                )}
-              </div>
-              <div>
-                <Link to={`/blog`}>
-                  <a className='secondary-button'>Voltar</a>
-                </Link>
-              </div>
-            </Links>
-          </>
-        )}
-      </Container>
+      <div className='container'>
+        <Container>
+          {post && (
+            <>
+              <h2>{post.title}</h2>
+              <h4 >Criado por {post.createdBy} em {formattedDate} </h4>
+              <CardResume resume={post.resumo} />
+              <Image>
+                <img src={post.image} alt={post.title} />
+              </Image>
+              <Paragraph>
+                {paragraphs.map((paragraph, index) => (
+                  <p key={index}>{paragraph.trim()}</p>
+                ))}
+              </Paragraph>
+              <h4 >Criado por {post.createdBy} em {formattedDate} </h4>
+              <Tags tags={post.tagsArray} />
+              <Links>
+                <div>
+                  {post.urlRepository && (
+                    <a href={post.urlRepository} target="_blank" rel="noopener noreferrer" title='Repositório' className='tooltip'
+                    >
+                      <Github />
+                    </a>
+                  )}
+                  {post.deploy && (
+                    <a href={post.deploy} target="_blank" rel="noopener noreferrer" title='Deploy' className='tooltip'
+                    >
+                      <Netlify />
+                    </a>
+                  )}
+                </div>
+                <div>
+                  <Link to={`/blog`}>
+                    <a className='secondary-button'>Voltar</a>
+                  </Link>
+                </div>
+              </Links>
+            </>
+          )}
+        </Container>
+      </div>
     </Page>
   )
 }

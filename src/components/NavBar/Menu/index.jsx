@@ -23,23 +23,30 @@ const Menu = styled.div`
         }
     }
     .mobile{
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
         list-style: none;  
         white-space: nowrap;
         ul {
+            width: 100%;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            
             list-style: none;  
             white-space: nowrap;
         }
         li {
-            margin-top: 20px;
+            margin-top: 20px;justify-content: center;
             margin-bottom: 20px;
             a {
-                font-size: 30px;
+                align-items: center;
+                
+                margin: 0;
+                padding: 0;
+                font-size: 23px;
             }
         }
     }

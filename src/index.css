@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-/* #root {
-
-} */
-
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #f6f4f4ac;
-  font-family: 'Inter', sans-serif;
+#root {
+  /* Variaveis de cores */
+  --color-primary: #E62428;
+  --color-secondary: #B0151B;
+  --color-tertiary: #414040;
+  --color-gray-primary: #ccc;
+  --color-gray-secondary: #f6f4f4; 
+  --color-gray-tertiary: #414040;
   /* Mantem o tamanho da tela horizontal */
   overflow-x: hidden;
   /* Em dispositivos moveis não deixa que tenha barra horizontal*/
@@ -28,6 +28,33 @@ body {
   /* Internet Explorer/Edge */
   user-select: none;
   /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f6f4f4ac;
+  font-family: 'Poopins', sans-serif;
+  font-weight: 400;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  align-items: center;
+ } 
+.container { 
+  align-items: center;
+  width: 80%;
+  @media screen and (max-width: 767px) {
+    width: 95%;
+  }
 }
 
 h1,
@@ -36,7 +63,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Inter', sans-serif;
+  /* font-family: 'Inter', sans-serif; */
   color: #414040;
   @media screen and (max-width: 1023px) {
     font-size: 2rem;
@@ -44,8 +71,13 @@ h6 {
 }
 
 p {
-  font-family: 'Montserrat', sans-serif;
   color: #414040;
+  font-size: 1rem;
+  line-height: 1.5em;
+}
+
+a, link {
+  text-decoration: none;
 }
 
 .primary-button {
@@ -91,17 +123,17 @@ nav button:hover {
 }
 
 .secondary-button {
+  
   font-family: 'Montserrat', sans-serif;
-  display: inline-block;
+  
 
-  padding: 0.5em 1.2em;
+  padding: 10px 20px;
   font-size: 18px;
   margin-right: 10px;
   margin-left: 10px;
   font-weight: 400;
   color: #ffffff;
   background-color: #E62428;
-  border: none;
   border-radius: 45px;
   transition: all 0.3s ease 0s;
   cursor: pointer;
@@ -116,6 +148,38 @@ nav button:hover {
 
 .secondary-button:hover {
   background-color: #B0151B;
+}
+
+.default-button {
+  font-family: 'Inter', sans-serif;
+  padding: 8px 20px;
+  font-size: 18px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-weight: 600;
+  color: #E62428;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 3px solid #E62428 !important;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  white-space: nowrap;
+  box-shadow: 0px 0px 25px rgba(114, 113, 113, 0.8);
+  &:active {
+    background-color: #E62428;
+    color: #fff;
+  }
+  &::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #E62428;
+    transition: width .3s;
+  }
+
 }
 
 input::placeholder,

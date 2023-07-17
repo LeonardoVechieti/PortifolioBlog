@@ -6,33 +6,37 @@ import { Logo } from '../Logo'
 import Menu from './Menu'
 
 const Page = styled.div`
+    position: fixed;
+    z-index: 1;
+    background-color: #FFFFFF;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.45);
 `
 const Header = styled.header`
+    /* position: relative; */
     width: 75%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    a {
-        text-decoration: none;
-    }
-`
-
-const Nav = styled.nav`
-    display: flex;
 `
 
 const MobileMenu = styled.div`
     cursor: pointer;
-    margin-left: 25px; ;
+    margin-right: 15px;
+    border: 1px solid #d4cccc;
+    border-radius: 5px;
     div{
         width: 32px;
         height: 2px;
-        background-color: #e03737;
+        background-color: #696262;
         margin: 8px;
     }
     @media screen and (min-width: 1023px) {
@@ -56,30 +60,33 @@ const NavBar = () => {
     return (
         <Page>
             <Header>
-                <NavLink to="/">
-                    <Logo />
-                </NavLink>
-                <Nav>
-                    <MobileMenu
-                        className='mobile-menu'
-                        onClick={() => {
-                            setMenuIsVisible(!menuIsVisible);
-                        }}
-                    >
+                {/* Menu Hamburguer */}
+                <MobileMenu
+                    className='mobile-menu'
+                    onClick={() => {
+                        setMenuIsVisible(!menuIsVisible);
+                    }}
+                >
+                    <>
                         <div className='line1'></div>
                         <div className='line2'></div>
                         <div className='line3'></div>
-                    </MobileMenu>
-                    <MenuMobile
-                        menuIsVisible={menuIsVisible}
-                        setMenuIsVisible={setMenuIsVisible}
-                    />
-                    <Menu type='desktop' />
-                </Nav>
+                    </>
+                </MobileMenu>
+
+                {/* Logo */}
+                <NavLink to="/">
+                    <Logo />
+                </NavLink>
+                {/* Menu versão desktop */}
+                <Menu type='desktop' />
+                {/* Menu versão mobile (Modal)*/}
+                <MenuMobile
+                    menuIsVisible={menuIsVisible}
+                    setMenuIsVisible={setMenuIsVisible}
+                />
             </Header>
         </Page>
     )
 }
-
-
 export default NavBar

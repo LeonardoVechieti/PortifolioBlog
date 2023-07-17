@@ -9,7 +9,6 @@ import Javax from '../assets/svg/.Javax'
 
 
 const TecnologyWrapper = styled.div`
-    /* background-color: #e6e4e4; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,6 +33,11 @@ const TecnologyWrapper = styled.div`
         justify-content: center;
         align-items: center;
         width: 50%;
+        @media screen and (max-width: 1024px) {
+            width: 100%;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
         @media only screen and  (max-width: 768px) {
             flex-direction: column;
         }
@@ -65,11 +69,11 @@ const TecnologyWrapper = styled.div`
     
 `
 
-export const Tecnology = () => {
+export default () => {
     return (
         <TecnologyWrapper>
             <h2>Tecnologias</h2>
-            <div>
+            <div className='container'> 
                 <a title='Javascript' className='tooltip'>
                     <Javascript />
                 </a>

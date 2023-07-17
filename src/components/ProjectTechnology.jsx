@@ -9,7 +9,7 @@ import Ios from '../assets/svg/Ios'
 import Sass from '../assets/svg/Sass'
 
 
-const TecnologyWrapper = styled.div`
+const TechnologyWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -24,7 +24,7 @@ const TecnologyWrapper = styled.div`
 
 export default ({ tags }) => {
   return (
-    <TecnologyWrapper>
+    <TechnologyWrapper>
       {tags.includes('android') ? <a title="Android" className='tooltip'><Android /> </a> : null}
       {tags.includes('ios') ? <a title="Ios" className='tooltip'><Ios /> </a> : null}
       {tags.includes('java') ? <a title="Java" className='tooltip'><Javax /> </a> : null}
@@ -35,7 +35,7 @@ export default ({ tags }) => {
       {tags.includes('sass') ? <a title="Sass" className='tooltip'><Sass /> </a> : null}
       {tags.includes('node') ? <a title="Nodejs" className='tooltip'><Nodejs /> </a> : null}
       {tags.includes('kotlin') ? <a title="Kotlin" className='tooltip'><Kotlin /> </a> : null}
-    </TecnologyWrapper>
+    </TechnologyWrapper>
   )
 }
 

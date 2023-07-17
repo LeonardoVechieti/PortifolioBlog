@@ -46,14 +46,29 @@ const Copyright = styled.div`
         text-decoration: none;
         margin-left: 15px;
     }
+    .menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      div {
+        font-size: 15px;
+        white-space: nowrap;
+      }
+      a {
+        white-space: nowrap;
+        margin: 0;
+        margin-top: 15px;
+        font-size: 18px;
+      }
+    }
 `
 
-export default () => {
+export default ({style}) => {
   return (
     <Footer>
       <Social />
       <Copyright>
-        <div>
+        <div className={style}>
           <div>
             Copyright 2023 &copy;
           </div>
