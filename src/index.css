@@ -199,7 +199,7 @@ textarea:focus {
   margin: 2em 0;
   padding: 2em;
   border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px rgba(168, 166, 166, 0.7);
   background-color: transparent;
   width: 100%;
   max-width: 600px;
@@ -222,7 +222,7 @@ textarea {
   border: none;
   border-radius: 20px;
   border: 2px solid #ccc;
-  padding: .8em 0;
+  padding: .8em 10px;
   background-color: transparent;
 }
 
